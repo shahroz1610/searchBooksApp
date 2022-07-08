@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#books {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#books td, #books th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#books tr:nth-child(even){background-color: #f2f2f2;}
+
+#books tr:hover {background-color: #ddd;}
+
+#books th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #E97451;
+  color: white
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.del-button {
+  border: 1px solid #f6f6f6;
+  border-radius: 2em;
+  border-color: red;
+  background-color: white;
+  color: red;
+}
+
+.del-button:hover {
+  background-color: #f6f6f6;
+}
+
+.search {
+  margin-top: 3px;
+}
+
+.search-box {
+  width: 80%;
+  height: 3em;
+  border: 2px solid #E97451;
+  margin-left: 2px;
+  padding-left: 1%;
+  font-size: 15px;
+}
+
+.search-button {
+  width: 15%;
+  height: 3em;
+  margin-left: 1%;
+  background-color: white;
+  border: 1px solid #E97451;
+  font-size: 16px;
+  font-weight: bold;
+  color: #E97451;
+}
+.search-button:hover {
+  cursor: pointer;
+  background-color: #E97451;
+  color: white;
+}
