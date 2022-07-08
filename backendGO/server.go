@@ -6,31 +6,19 @@ import (
 	"net/http"
 )
 
-/////// Why does this doesn't work?
-// type Books struct {
-// 	Kind       string `json:"kind"`
-// 	TotalItems int    `json:"totalItems"`
-// 	Items      []struct {
-// 		Info VolumeInfo `json:volumeInfo, omitempty`
-// 	} `json:"items"`
-// }
-
-// type VolumeInfo struct {
-// 	Title     string   `json:"title"`
-// 	Authors   []string `json:"authors"`
-// 	PageCount string   `json:"pageCount"`
-// 	Language  string   `json:"language"`
-// }
-
 type Books struct {
-	Items []struct {
-		VolumeInfo struct {
-			Title     string   `json:"title"`
-			PageCount int      `json:"pageCount"`
-			Authors   []string `json:"authors"`
-			Language  string   `json:"language"`
-		} `json:"volumeInfo,omitempty"`
-	} `json:"items"`
+	Items []Items `json:"items"`
+}
+
+type Items struct {
+	VolumeInfo VolumeInfo `json:"volumeInfo,omitempty"`
+}
+
+type VolumeInfo struct {
+	Title     string   `json:"title"`
+	PageCount int      `json:"pageCount"`
+	Authors   []string `json:"authors"`
+	Language  string   `json:"language"`
 }
 
 type GetBooksBody struct {
