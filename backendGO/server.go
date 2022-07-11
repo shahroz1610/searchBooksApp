@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 type Books struct {
@@ -26,21 +27,20 @@ type GetBooksBody struct {
 }
 
 func getBooks(w http.ResponseWriter, req *http.Request) {
-	// var bookName GetBooksBody
-
-	// err := json.NewDecoder(req.Body).Decode(&bookName)
-
-	// if err != nil {
-	// 	panic(err)
-	// }
 	bookName := req.URL.Query().Get("bookName")
-	url := "https://www.googleapis.com/books/v1/volumes?q=" + bookName
+	escapedBook := url.PathEscape(bookName)
+
+	url := "https://www.googleapis.com/books/v1/volumes?q=" + escapedBook
 	res, err := http.Get(url)
 	if err != nil {
 		panic(err)
 	}
 	defer res.Body.Close()
 	body, err := ioutil.ReadAll(res.Body)
+
+	if err != nil {
+		panic(err)
+	}
 
 	books := Books{}
 	err = json.Unmarshal(body, &books)
