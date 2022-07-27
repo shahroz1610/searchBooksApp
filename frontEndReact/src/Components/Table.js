@@ -8,7 +8,9 @@ function Table() {
 
     const fetchBooks = async (bookName) => {
         console.log("BookName", bookName)
-        const response = await axios.get("http://localhost:8090/getBooks", {
+        let REACT_APP_URL = process.env.REACT_APP_URL + ":8090/getBooks"
+        console.log("url", REACT_APP_URL)
+        const response = await axios.get(REACT_APP_URL, {
             params: {
                 "bookName": bookName
             }
