@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-backend
+  labels:
+    app: search-backend
+    type: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search-backend
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: search-backend
+        type: backend
+    spec:
+      containers:
+      - name: search-backend
+        image: search-test-backend
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8090
